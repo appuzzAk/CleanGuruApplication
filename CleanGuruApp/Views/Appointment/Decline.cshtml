@@ -1,0 +1,25 @@
+﻿
+@model Appointment
+
+@{
+    ViewData["Title"] = "Decline";
+}
+
+@if (Model == null)
+{
+    <h2>No appointments</h2>
+}
+else
+{
+
+    <div align="right">
+        <a asp-action="CleanerAppointment" asp-controller="Appointment" class="warning" a>Back to List</a>
+    </div>
+    <partial name="AppointmentDetail" />
+    <br />
+    <a asp-action="Accept" asp-controller="AssignCleaner" asp-route-id="@Model.IdAppointment"
+       class="btn btn-outline-success my-2 my-sm-0">Accept</a>
+    <a asp-action="Decline" asp-controller="AssignCleaner" asp-route-id="@Model.IdAppointment"
+       class="btn btn-outline-success my-2 my-sm-0">Decline</a>
+}
+
